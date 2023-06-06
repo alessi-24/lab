@@ -17,7 +17,7 @@ L = 72
 #逆温度間隔決定
 gamma_temp = 1.4
 #イテレーション数
-iter_num_burn = 100
+iter_num_burn = 500
 iter_num = 1000
 #ステップサイズ
 B40_C = 0.01

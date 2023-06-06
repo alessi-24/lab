@@ -23,16 +23,15 @@ iter_num = 1000
 B40_C = 0.01
 #ステップサイズ減少
 B40_d = 0.7
-
 # ノイズの大きさ
-#b_chi = sigma_chi^(-2) 
-b_chi = 10^(2)
+b_chi = 10^(0)
 
 #読み込みのファイルパス
-read_file_path = "/Users/test/home/lab_research_1/data_make/data/chi_inv/chi_inv_1.h5"
+read_file_path = "/Users/nishimura/home/lab/data_make/data/chi_inv/chi_inv_1.h5"
+
 
 #書き出し
-#path = "/Users/test/home/lab_research_1/exmc/result/chi/"
+path = "/Users/nishimura/home/lab/exmc/result/chi/chi3_"
 
 
 #真のパラメータ値
@@ -305,11 +304,11 @@ function exmc(iter_num_burn, iter_num)
     para_B40 = initial_para_make() 
 
     #採択率・交換率
-    ac_B40 = zeros(Float16, L)
-    ex_rate = zeros(Float16, L)
+    ac_B40 = zeros(L)
+    ex_rate = zeros(L)
 
     #パラメータ
-    B40_save = zeros(Float16, iter_num, L)
+    B40_save = zeros(iter_num, L)
 
     
     # burn in
@@ -351,10 +350,16 @@ end
 
 para_B40, ac_B40, ex_rate = exmc(iter_num_burn, iter_num)
 
-## 採択率・交換率
-df_ac_ex = DataFrame(B40=ac_B40, ex=ex_rate)
-df_para_B40 = DataFrame(para_B40, :auto)
+# rate保存
+ac_ex_path = path * "ac_ex.h5"
+h5open(ac_ex_path, "w") do file
+    write(file, "ac", ac_B40)
+    write(file, "ex", ex_rate)
+end
 
 
-df_ac_ex |> CSV.write(path * "ac_ex.csv",writeheader=true)
-df_para_B40 |> CSV.write(path * "B40.csv",writeheader=true)
+# パラメータ保存
+B40_path = path * "B40.h5"
+h5open(B40_path, "w") do file
+    write(file, "B40", para_B40)
+end

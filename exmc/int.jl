@@ -4,22 +4,22 @@ L = 72
 #逆温度間隔決定
 gamma_temp = 1.4
 #イテレーション数
-iter_num_burn = 1000
+iter_num_burn = 500
 iter_num = 1000
 #ステップサイズ
-B40_C = 0.001
+B40_C = 0.05
 #ステップサイズ減少
 B40_d = 0.6
 # ノイズの大きさ
-b_spc = 10^(5)
-b_chi = 10^(0)
+b_spc = 10^(1)
+b_chi = 10^(-2)
 
 #読み込みのファイルパス
-read_file_path_spc = "/Users/nishimura/home/lab/data_make/data/spc/spc_1.h5"
-read_file_path_chi = "/Users/nishimura/home/lab/data_make/data/chi_inv/chi_inv_3.h5"
+read_file_path_spc = "/Users/nishimura/home/lab/data_make/data/spc/spc_5.h5"
+read_file_path_chi = "/Users/nishimura/home/lab/data_make/data/chi_inv/chi_inv_5.h5"
 
 #書き出し
-path = "/Users/nishimura/home/lab/exmc/result/int/spc1_chi3_"
+path = "/Users/nishimura/home/lab/exmc/result/int/spc5_chi5_"
 
 #真のパラメータ値
 function para_true()

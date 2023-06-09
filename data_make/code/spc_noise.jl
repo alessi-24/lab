@@ -33,7 +33,7 @@ end
 
 function make_noise_data(noise)
     # 読み込み
-    read_file_path = "/Users/test/home/lab_research_1/data_make/data/spc/spc.h5"
+    read_file_path = "/Users/nishimura/home/lab/data_make/data/spc/spc.h5"
     SpcHeat_Temp = read_file(read_file_path)
 
     # ノイズデータ
@@ -58,4 +58,21 @@ function main()
     end
 end
 
-main()
+function main2()
+    # ノイズのリスト
+    noise_list = [10^(0.0), 10^(0.5), 10^(1.0)]
+
+    # ノイズ入りデータ作成
+    for (index, noise) in enumerate(noise_list)
+        SpcHeat_Temp_noise = make_noise_data(noise)
+        
+        # 書き込みpath
+        index_up = index + 5
+        write_file_path = "/Users/nishimura/home/lab/data_make/data/spc/spc_" * string(index_up) * ".h5"
+
+        # 書き込み
+        write_file(write_file_path, SpcHeat_Temp_noise)
+    end
+end
+
+main2()

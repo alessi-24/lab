@@ -13,25 +13,25 @@ gr()
 
 #設定するパラメータ
 #レプリカ数
-L = 40
+L = 72
 #逆温度間隔決定
 gamma_temp = 1.4
 #イテレーション数
-iter_num_burn = 100
+iter_num_burn = 500
 iter_num = 1000
 #ステップサイズ
-B40_C = 0.01
+B40_C = 0.1
 #ステップサイズ減少
 B40_d = 0.7
 # ノイズの大きさ
-b_chi = 10^(0)
+b_chi = 10^(-2)
 
 #読み込みのファイルパス
-read_file_path = "/Users/nishimura/home/lab/data_make/data/chi_inv/chi_inv_1.h5"
+read_file_path = "/Users/nishimura/home/lab/data_make/data/chi_inv/chi_inv_5.h5"
 
 
 #書き出し
-path = "/Users/nishimura/home/lab/exmc/result/chi/chi3_"
+path = "/Users/nishimura/home/lab/exmc/result/chi/chi5_"
 
 
 #真のパラメータ値

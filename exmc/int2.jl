@@ -20,19 +20,19 @@ gamma_temp = 1.4
 iter_num_burn = 500
 iter_num = 1000
 #ステップサイズ
-B40_C = 0.05
+B40_C = 0.001
 #ステップサイズ減少
-B40_d = 0.6
+B40_d = 0.7
 # ノイズの大きさ
-b_spc = 10^(0)
-b_chi = 10^(-2)
+b_spc = 10^(2)
+b_chi = 10^(1)
 
 #読み込みのファイルパス
-read_file_path_spc = "/Users/nishimura/home/lab/data_make/data/spc/spc_6.h5"
-read_file_path_chi = "/Users/nishimura/home/lab/data_make/data/chi_inv/chi_inv_5.h5"
+read_file_path_spc = "/Users/nishimura/home/lab/data_make/data/spc/spc_4.h5"
+read_file_path_chi = "/Users/nishimura/home/lab/data_make/data/chi_inv/chi_inv_2.h5"
 
 #書き出し
-path = "/Users/nishimura/home/lab/exmc/result/int/spc6_chi5_"
+path = "/Users/nishimura/home/lab/exmc/result/int/spc4_chi2_"
 
 #真のパラメータ値
 function para_true()

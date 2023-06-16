@@ -20,17 +20,17 @@ gamma_temp = 1.4
 iter_num_burn = 500
 iter_num = 1000
 #ステップサイズ
-B40_C = 0.05
+B40_C = 0.01
 #ステップサイズ減少
 B40_d = 0.6
 # ノイズの大きさ
-b_spc = 10^(0)
+b_spc = 10^(2)
 
 #読み込みのファイルパス
-read_file_path = "/Users/nishimura/home/lab/data_make/data/spc/spc_6.h5"
+read_file_path = "/Users/nishimura/home/lab/data_make/data/spc/spc_4.h5"
 
 #書き出し
-path = "/Users/nishimura/home/lab/exmc/result/spc/spc6_"
+path = "/Users/nishimura/home/lab/exmc/result/spc/spc4_"
 
 
 #真のパラメータ値
@@ -279,7 +279,7 @@ end
 #事前分布による初期パラメータ決定
 function initial_para_make()
     #パラメータ候補値
-    para_num = collect(0.0:0.01:0.2)
+    para_num = collect(-0.2:0.01:0.2)
     #確率
     para_prob = prior.(para_num)
     return sample(para_num, ProbabilityWeights(para_prob),L)

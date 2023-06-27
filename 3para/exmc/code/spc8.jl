@@ -20,21 +20,21 @@ gamma_temp = 1.4
 iter_num_burn = 1000
 iter_num = 1000
 #ステップサイズ
-B20_C = 0.01
-B40_C = 0.01
-B44_C = 0.01
+B20_C = 0.001
+B40_C = 0.001
+B44_C = 0.001
 #ステップサイズ減少
 B20_d = 0.7
 B40_d = 0.7
 B44_d = 0.7
 # ノイズの大きさ
-b_spc = 10^(1)
+b_spc = 10^(6)
 
 #読み込みのファイルパス
-read_file_path = "/Users/nishimura/home/lab/3para/data_make/data/spc/spc_8.h5"
+read_file_path = "/Users/nishimura/home/lab/3para/data_make/data/spc/spc_3.h5"
 
 #書き出し
-path = "/Users/nishimura/home/lab/3para/exmc/result/spc/spc8_"
+path = "/Users/nishimura/home/lab/3para/exmc/result/spc/spc3_"
 
 
 
@@ -387,7 +387,7 @@ function exmc(iter_num_burn, iter_num)
         B40_save[iter,:] = para_B40
         B44_save[iter,:] = para_B44
 
-        if iter % 5 == 0
+        if iter % 20 == 0
             para_B20,para_B40,para_B44, ex_rate = exchange_spc(para_B20,para_B40,para_B44, ex_rate)
         end
 

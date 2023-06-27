@@ -17,24 +17,24 @@ L = 72
 #逆温度間隔決定
 gamma_temp = 1.2
 #イテレーション数
-iter_num_burn = 100
-iter_num = 100
+iter_num_burn = 1000
+iter_num = 1000
 #ステップサイズ
-B20_C = 0.01
-B40_C = 0.01
-B44_C = 0.01
+B20_C = 0.001
+B40_C = 0.001
+B44_C = 0.001
 #ステップサイズ減少
 B20_d = 0.7
 B40_d = 0.7
 B44_d = 0.7
 # ノイズの大きさ
-b_spc = 10^(1)
+b_spc = 10^(6)
 
 #読み込みのファイルパス
-read_file_path = "/Users/nishimura/home/lab/3para/data_make/data/spc/spc_8.h5"
+read_file_path = "/Users/nishimura/home/lab/3para/data_make/data/spc/spc_3.h5"
 
 #書き出し
-path = "/Users/nishimura/home/lab/3para/exmc/result/spc/spc8_"
+path = "/Users/nishimura/home/lab/3para/exmc/result/spc/spc3_"
 
 
 
@@ -338,7 +338,7 @@ end
 #事前分布による初期パラメータ決定
 function initial_para_make()
     #パラメータ候補値
-    para_num = collect(-0.2:0.01:0.2)
+    para_num = collect(0.1:0.01:0.5)
     #確率
     para_prob = prior.(para_num)
     return sample(para_num, ProbabilityWeights(para_prob),L)
